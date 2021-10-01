@@ -32,5 +32,6 @@ services:
 
 
     App\Utils\MusementUtils:
+        public: true
         arguments:
             $base_url: '%env(BASE_URL_MUSEMENT)%'
