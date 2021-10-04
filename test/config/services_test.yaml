@@ -35,3 +35,10 @@ services:
         public: true
         arguments:
             $base_url: '%env(BASE_URL_MUSEMENT)%'
+
+
+    App\Utils\WeatherapiUtils:
+        public: true
+        arguments:
+            $base_url: '%env(BASE_URL_WEATHER)%'
+            $key: '%env(WEATHER_KEY)%'

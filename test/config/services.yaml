@@ -34,3 +34,9 @@ services:
     App\Utils\MusementUtils:
         arguments:
             $base_url: '%env(BASE_URL_MUSEMENT)%'
+
+
+    App\Utils\WeatherapiUtils:
+        arguments:
+            $base_url: '%env(BASE_URL_WEATHER)%'
+            $key: '%env(WEATHER_KEY)%'
