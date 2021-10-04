@@ -25,6 +25,7 @@ class CurlUtils
             CURLOPT_URL => $url,
         );
 
+
         try {
             /** @var CurlHandle $ch */
             $ch = curl_init($url);

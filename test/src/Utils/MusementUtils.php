@@ -2,7 +2,9 @@
 
 namespace App\Utils;
 
-class MusementUtils
+use App\Interfaces\CityInterface;
+
+class MusementUtils implements CityInterface
 {
 
     private string $base_url;

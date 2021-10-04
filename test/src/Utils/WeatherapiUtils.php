@@ -2,7 +2,9 @@
 
 namespace App\Utils;
 
-class WeatherapiUtils
+use App\Interfaces\WeatherInterface;
+
+class WeatherapiUtils implements WeatherInterface
 {
 
     private string $base_url;
@@ -22,13 +24,13 @@ class WeatherapiUtils
     /**
      * @return array<string, array> $items
      */
-    public function getWeathersByLatAndLong (float $lat, float $long) : array
+    public function getWeathersByLatAndLong (float $lat, float $long, int $days=2) : array
     {
         $weathers = [];
 
         try {
 
-            $url = $this->base_url."/forecast.json?key={$this->key}&q={$lat},{$long}&days=2";
+            $url = $this->base_url."/forecast.json?key={$this->key}&q={$lat},{$long}&days={$days}";
 
             $response_weathers = CurlUtils::doCurl($url);
 
