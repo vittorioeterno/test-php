@@ -4,5 +4,8 @@ namespace App\Interfaces;
 
 interface WeatherInterface
 {
-    public function getWeathersByLatAndLong (float $lat, float $long, int $days);
+    /**
+     * @return array<string, array> $items
+     */
+    public function getWeathersByLatAndLong (float $lat, float $long, int $days) : ?array;
 }

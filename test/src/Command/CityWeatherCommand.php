@@ -28,7 +28,8 @@ class CityWeatherCommand extends Command {
         parent::__construct();
     }
 
-    protected function configure() {
+    protected function configure() : void 
+    {
 
         $this
             ->addOption('limit', null, InputOption::VALUE_OPTIONAL, 'Input to set the desired limit', 10)
@@ -61,9 +62,11 @@ class CityWeatherCommand extends Command {
 
         if (!empty($result) && count($result)>0) {
             
+            $output->writeln("");
             foreach ($result as $r) {
                 $output->writeln("Processed city ".$r[0]." | ".$r[1]." - ".$r[1]);
             }
+            $output->writeln("");
         }
 
         return 0;

@@ -17,7 +17,11 @@ class CityWeatherService
         $this->weather_service = $weather_service->getWeatherService();
     }
 
-    public function getCitiesWeathers (int $limit, int $offset, string $sort_by, int $forecast_days) : array 
+
+    /**
+     * @return array<int, mixed> $items
+     */
+    public function getCitiesWeathers (int $limit, int $offset, string $sort_by, int $forecast_days) : ?array 
     {
         $result = [];
 

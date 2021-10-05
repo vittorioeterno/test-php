@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Interfaces\WeatherInterface;
 use App\Utils\WeatherapiUtils;
 
 class WeatherService
@@ -14,7 +15,7 @@ class WeatherService
         $this->weatherapi_utils = $weatherapi_utils;
     }
 
-    public function getWeatherService () : object
+    public function getWeatherService () : WeatherInterface
     {
         return $this->weatherapi_utils;
     }

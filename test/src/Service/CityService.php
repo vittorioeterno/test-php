@@ -16,7 +16,7 @@ class CityService
         $this->musement_utils = $musement_utils;
     }
 
-    public function getCityService () : object
+    public function getCityService () : CityInterface
     {
         return $this->musement_utils;
     }

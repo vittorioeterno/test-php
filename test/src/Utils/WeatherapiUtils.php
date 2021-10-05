@@ -24,7 +24,7 @@ class WeatherapiUtils implements WeatherInterface
     /**
      * @return array<string, array> $items
      */
-    public function getWeathersByLatAndLong (float $lat, float $long, int $days=2) : array
+    public function getWeathersByLatAndLong (float $lat, float $long, int $days=2) : ?array
     {
         $weathers = [];
 

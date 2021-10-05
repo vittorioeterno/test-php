@@ -20,9 +20,9 @@ class MusementUtils implements CityInterface
     }
 
     /**
-     * @return array<int, array> $items
+     * @return array<mixed> $items
      */
-    public function getCities (int $offset=0, int $limit=10, string $sort_by='weigth') : array
+    public function getCities (int $offset=0, int $limit=10, string $sort_by='weigth') : ?array
     {
         $cities = [];
         
