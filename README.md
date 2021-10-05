@@ -31,9 +31,13 @@ Now you are in the project
 
     composer install
 
+Setup the test env
+
+    composer dump-env test
+
 Run the symfony command to test External APIs
     
-    //TODO
+    php bin/console app:city-weather
 
 Run PHPUnit Tests 
 
