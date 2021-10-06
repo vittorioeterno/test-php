@@ -23,7 +23,7 @@ To run PHPStan, move in root of the project:
 
     sudo docker-compose up
 
-In a new terminal, in /jagaad_test, run:
+In a new terminal, in /test_php, run:
 
     sudo docker-compose exec php /bin/bash
 
