@@ -1,0 +1,51 @@
+Forecast:
+  post:
+    tags:
+      - Forecast
+    summary: Create New Forecasts by City ID
+    security:
+      - BearerAuth: []
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          example: 1
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              days:
+                type: integer
+            example: 
+              days: 2
+    responses:
+      '201':
+        $ref: '../responses/success_response.yaml'
+ForecastByDay:
+  get:
+    tags:
+      - Forecast
+    summary: Get User by ID
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          example: 1
+      - in: path
+        name: day
+        required: false
+        schema:
+          type: string
+          enum: [today, tomorrow, "{Y-m-d}"]
+          default: today
+          description: If Y-m-d is accepted a date in this format 2021-10-07.
+          example: "tomorrow"
+    responses:
+      '200':
+        $ref : "../responses/success_response_get.yaml"

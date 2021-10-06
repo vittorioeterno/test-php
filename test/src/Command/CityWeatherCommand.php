@@ -53,20 +53,23 @@ class CityWeatherCommand extends Command {
             return 0;
         }
 
-        if ($forecast_days > 10) {
+        if ($forecast_days < 1 || $forecast_days > 10) {
             $output->writeln("\n\nError: out of forecast range\n");
             return 0;
         }
 
-        $result = $this->city_weather_service->getCitiesWeathers($limit,$offset,$sort_by,$forecast_days);
-
-        if (!empty($result) && count($result)>0) {
-            
-            $output->writeln("");
-            foreach ($result as $r) {
-                $output->writeln("Processed city ".$r[0]." | ".$r[1]." - ".$r[1]);
+        try {
+            $result = $this->city_weather_service->getCitiesWeathers($limit,$offset,$sort_by,$forecast_days);
+            if (!empty($result)) {
+                
+                $output->writeln("");
+                foreach ($result as $r) {
+                    $output->writeln("Processed city ".$r[0]." | ".$r[1]." - ".$r[1]);
+                }
+                $output->writeln("");
             }
-            $output->writeln("");
+        } catch (\Exception $e) {
+            $output->writeln("\n\nError: ".$e->getMessage()."\n");
         }
 
         return 0;

@@ -28,7 +28,7 @@ class CityWeatherService
         try {
 
             $cities = $this->city_service->getCities($offset, $limit, $sort_by);
-            if (!empty($cities) && count($cities)>0) {
+            if (!empty($cities)) {
 
                 $i=0;
                 foreach ($cities as $city) {
