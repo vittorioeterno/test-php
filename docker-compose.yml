@@ -9,3 +9,16 @@ services:
       - '9000:9000'
     volumes:
       - ./test:/var/www/test
+
+  swagger-ui:
+      image: swaggerapi/swagger-ui
+      container_name: swagger_ui_container
+      ports:
+          - "85:8080"
+      volumes:
+          - ./doc:/usr/share/nginx/html/doc
+      environment:
+          # API_URL: doc/openapi.yaml
+          URLS: "[{ url: \"doc/openapi.yaml\", name: \"UserManagement\" },
+                  { url: \"doc/checkapi.yaml\", name: \"CheckServer\" },
+              ]"
